@@ -27,7 +27,7 @@ public class Hacker : MonoBehaviour
         Terminal.WriteLine("What would you like to hack into?");
         Terminal.WriteLine("Press 1 for the local library");
         Terminal.WriteLine("Press 2 for the police station");
-        Terminal.WriteLine("Press 3 for NASA");
+        /*Terminal.WriteLine("Press 3 for NASA");*/
         Terminal.WriteLine("Enter your selection:");
     }
 
@@ -114,6 +114,18 @@ public class Hacker : MonoBehaviour
                    -----
 
                 ");
+                break;
+            case 2:
+                Terminal.WriteLine("Have a Book....");
+                Terminal.WriteLine(@"
+                   _____
+                   |   |
+                   -----
+
+                ");
+                break;
+            default:
+                Debug.LogError("Error!");
                 break;
         }
     }
