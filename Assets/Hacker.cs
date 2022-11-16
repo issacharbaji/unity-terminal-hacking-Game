@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Hacker : MonoBehaviour
@@ -35,8 +33,7 @@ public class Hacker : MonoBehaviour
 
     void OnUserInput(string input)
     {
-        /*var menu = "menu";*/
-
+        
         if (input == "menu")
         {
             ShowMainMenu();
@@ -72,10 +69,12 @@ public class Hacker : MonoBehaviour
         switch (level)
         {
             case 1:
-                password = level1Passwords[0];
+                int index1 = Random.Range(0,level1Passwords.Length -1);
+                password = level1Passwords[index1];
                 break;
             case 2:
-                password = level2Passwords[0];
+                int index2 = Random.Range(0, level2Passwords.Length - 1);
+                password = level2Passwords[index2];
                 break;
             default:
                 Debug.LogError("Please choose a valid level!");
@@ -86,13 +85,36 @@ public class Hacker : MonoBehaviour
 
     void CheckPassord(string input)
     {
-        if ( input== password) 
+        if ( input== password)
         {
-            Terminal.WriteLine("Well Done!");
+            DispalayWinScreen();
         }
         else
         {
             Terminal.WriteLine("Sorry, Wrong password!");
+        }
+    }
+
+    void DispalayWinScreen()
+    {
+        currentScreen = Screen.Win;
+        Terminal.ClearScreen();
+        ShowLevelReward();
+    }
+
+    void ShowLevelReward()
+    {
+        switch(level)
+        {
+            case 1:
+                Terminal.WriteLine("Have a Book....");
+                Terminal.WriteLine(@"
+                   _____
+                   |   |
+                   -----
+
+                ");
+                break;
         }
     }
 
